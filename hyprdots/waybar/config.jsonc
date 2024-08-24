@@ -1,0 +1,89 @@
+{
+    ///////////////////
+    // Global config //
+    ///////////////////
+
+    "layer": "top",
+    "position": "top",
+    "margin-left": 0,
+    "margin-bottom": 0,
+    "margin-right": 0,
+    "spacing": 5,
+
+    "modules-left": [
+        "custom/cpu",
+        "custom/gpu",
+        "memory"
+    ],
+    "modules-center": [
+        "hyprland/workspaces"
+    ],
+    "modules-right": [
+        "wireplumber",
+        "clock"
+    ],
+
+    /////////////
+    // Modules //
+    /////////////
+
+    "custom/cpu": {
+        "exec": "~/.config/waybar/modules/cpu.sh",
+        "interval": 4,
+        "format": "{}"
+    },
+
+    "custom/gpu": {
+        "exec": "~/.config/waybar/modules/gpu.sh",
+        "interval": 4,
+        "format": "{}"
+    },
+
+    "memory": {
+        "interval": 4,
+        "format": "RAM: {percentage}% SWAP: {swapPercentage}%",
+        "on-click": "alacritty -e btop"
+    },
+
+    "clock": {
+        "format": "{:L%H:%M | %A | %d/%m/%Y}"
+    },
+
+    "hyprland/workspaces": {
+        "all-outputs": true,
+        "format": "{name}",
+        "format-icons": {
+            "1": "一",
+            "2": "二",
+            "3": "三",
+            "4": "四",
+            "5": "五",
+            "6": "六",
+            "7": "七",
+            "8": "八",
+            "9": "九",
+            "10": "十"
+        },
+        "on-scroll-up": "hyprctl dispatch workspace e+1 1>/dev/null",
+        "on-scroll-down": "hyprctl dispatch workspace e-1 1>/dev/null",
+        "sort-by-number": true,
+        "active-only": false
+    },
+
+    "wireplumber": {
+        "on-click": "pavucontrol",
+        "format": "{icon}  {volume}%",
+        "format-muted": " ",
+        "format-source": "",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": " ",
+            "hands-free": " ",
+            "headset": " ",
+            "phone": " ",
+            "portable": " ",
+            "car": " ",
+            "default": [" ", " ", " "]
+        }
+    }
+}

@@ -1,0 +1,35 @@
+* {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 13;
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border-radius: 0;
+  transition: none;
+  border: 1px solid transparent;
+}
+
+#waybar {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+#clock,
+#wireplumber,
+#memory,
+#custom-gpu,
+#custom-cpu {
+  color: rgb(125, 125, 125);
+  border: 1px solid rgb(45, 45, 45);
+  padding: 0 5px;
+}
+
+#workspaces button {
+  padding: 0 5px;
+  color: rgb(125, 125, 125);
+}
+
+#workspaces button.active {
+  border-bottom: solid 0.8px rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
+}
