@@ -1,3 +1,5 @@
 - Add finished install message popup box
 
 - Add a function for entering a git containing the dot files and let the tool handle the rest
+
+- improve gui by a lot :3
