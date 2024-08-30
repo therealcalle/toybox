@@ -1,2 +1,2 @@
 #!/bin/bash
-sudo -E nvidia-settings -a GPUTargetFanSpeed=$1
+sudo -E nvidia-settings -a [fan:$2]/GPUTargetFanSpeed=$1
