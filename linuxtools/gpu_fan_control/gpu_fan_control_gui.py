@@ -1,6 +1,6 @@
 import sys
-from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout, QSlider, QPushButton, QLabel, QGroupBox
-from PyQt5.QtCore import Qt
+from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout, QSlider, QPushButton, QLabel, QGroupBox, QTextEdit
+from PyQt5.QtCore import Qt, QTimer
 import subprocess
 
 class FanControlApp(QWidget):
@@ -22,6 +22,15 @@ class FanControlApp(QWidget):
     def initUI(self):
         self.setWindowTitle('GPU Fan Control')
         layout = QVBoxLayout()
+
+        # Information Box
+        info_group = QGroupBox("GPU Information")
+        info_layout = QVBoxLayout()
+        self.info_text = QTextEdit()
+        self.info_text.setReadOnly(True)
+        info_layout.addWidget(self.info_text)
+        info_group.setLayout(info_layout)
+        layout.addWidget(info_group)
 
         for i in range(self.fan_count):
             fan_group = QGroupBox(f"Fan {i}")
@@ -48,6 +57,14 @@ class FanControlApp(QWidget):
 
         self.setLayout(layout)
 
+        # Set up timer for updating GPU information
+        self.timer = QTimer(self)
+        self.timer.timeout.connect(self.update_gpu_info)
+        self.timer.start(5000)  # Update every 5 seconds
+
+        # Initial update
+        self.update_gpu_info()
+
     def update_label(self, value, label):
         label.setText(f'{value}%')
 
@@ -57,6 +74,33 @@ class FanControlApp(QWidget):
             print(f"Fan {fan_index} speed set to {speed}%")
         except subprocess.CalledProcessError as e:
             print(f"Error setting fan speed: {e}")
+
+    def update_gpu_info(self):
+        try:
+            # Get GPU model, temperature, and driver version
+            result = subprocess.run(['nvidia-smi', '--query-gpu=name,temperature.gpu,driver_version', '--format=csv,noheader,nounits'], 
+                                    capture_output=True, text=True, check=True)
+            gpu_info = result.stdout.strip().split(',')
+            
+            # Get fan speeds
+            fan_speeds = []
+            for i in range(self.fan_count):
+                result = subprocess.run(['nvidia-settings', '-q', f'[fan:{i}]/GPUCurrentFanSpeed', '-t'], 
+                                        capture_output=True, text=True, check=True)
+                fan_speeds.append(result.stdout.strip())
+
+            # Format the information
+            info = f"GPU Model: {gpu_info[0]}\n"
+            info += f"Temperature: {gpu_info[1]}°C\n"
+            info += f"Driver Version: {gpu_info[2]}\n"
+            for i, speed in enumerate(fan_speeds):
+                info += f"Fan {i} Speed: {speed}%\n"
+
+            self.info_text.setText(info)
+
+        except subprocess.CalledProcessError as e:
+            print(f"Error getting GPU information: {e}")
+            self.info_text.setText("Error fetching GPU information")
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
