@@ -78,8 +78,7 @@ class FanControlApp(QWidget):
     def update_gpu_info(self):
         try:
             # Get GPU model, temperature, and driver version
-            result = subprocess.run(['nvidia-smi', '--query-gpu=name,temperature.gpu,driver_version', '--format=csv,noheader,nounits'], 
-                                    capture_output=True, text=True, check=True)
+            result = subprocess.run(['nvidia-smi', '--query-gpu=name,temperature.gpu,driver_version', '--format=csv,noheader,nounits'], capture_output=True, text=True, check=True)
             gpu_info = result.stdout.strip().split(',')
             
             # Get fan speeds
@@ -90,11 +89,12 @@ class FanControlApp(QWidget):
                 fan_speeds.append(result.stdout.strip())
 
             # Format the information
-            info = f"GPU Model: {gpu_info[0]}\n"
-            info += f"Temperature: {gpu_info[1]}°C\n"
-            info += f"Driver Version: {gpu_info[2]}\n"
+            info = f"<b>GPU Model: {gpu_info[0]}</b><br>"
+            info += f"Driver Version: {gpu_info[2]}<br>"
+            info += "<br>"
+            info += f"<b>Temperature: {gpu_info[1]}°C</b><br>"
             for i, speed in enumerate(fan_speeds):
-                info += f"Fan {i} Speed: {speed}%\n"
+                info += f"Fan {i} Speed: {speed}%<br>"
 
             self.info_text.setText(info)
 
