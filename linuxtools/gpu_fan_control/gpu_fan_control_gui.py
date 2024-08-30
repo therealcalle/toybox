@@ -38,7 +38,7 @@ class FanControlApp(QWidget):
             slider_layout.addWidget(slider)
             slider_layout.addWidget(slider_label)
 
-            button = QPushButton('Set Speed')
+            button = QPushButton('Apply')
             button.clicked.connect(lambda _, s=slider, i=i: self.set_speed(s.value(), i))
 
             fan_layout.addLayout(slider_layout)
