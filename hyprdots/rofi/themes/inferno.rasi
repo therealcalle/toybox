@@ -1,0 +1,118 @@
+/* ROFI INFERNO THEME */
+/* CREATED BY therealcalle */
+/* SETUP COLORS */
+
+* {
+    main-col: rgba(255, 125, 0, 1);
+    bg-col:  rgba(30, 30, 30, 0.2);
+    selected-col: rgba(255, 125, 0, 0.4);
+    font-col: rgba(255, 255, 255, 0.5);
+    fontr-col: rgba(0, 0, 0, 0.5);
+    width: 400;
+    font: "JetBrainsMono Nerd Font 14";
+}
+
+element-text, element-icon , mode-switcher {
+    background-color: inherit;
+    text-color:       inherit;
+}
+
+window {
+    height: 380px;
+    border: 1px;
+    border-color: @main-col;
+    background-color: transparent;
+}
+
+mainbox {
+    background-color: transparent;
+}
+
+inputbar {
+    children: [prompt,entry];
+    background-color: @bg-col;
+    border-radius: 5px;
+    padding: 2px;
+}
+
+prompt {
+    background-color: @main-col;
+    padding: 6px;
+    text-color: @fontr-col;
+    border-radius: 3px;
+    margin: 20px 0px 0px 20px;
+}
+
+textbox-prompt-colon {
+    expand: false;
+    str: ":";
+}
+
+entry {
+    padding: 6px;
+    margin: 20px 20px 0px 10px;
+    text-color: @font-col;
+    background-color: @bg-col;
+    border: 1px;
+    border-radius: 3px;
+    border-color: @main-col;
+}
+
+listview {
+    padding: 0px 0px 0px 0px;
+    margin: 10px 22px 0px 22px;
+    columns: 1;
+    lines: 5;
+    background-color: transparent;
+    border: 0px;
+    border-color: @main-col;
+}
+
+element {
+    background-color: transparent;
+    text-color: @font-col;
+    spacing: 0px;
+}
+
+element-icon {
+    size: 45px;
+}
+
+element selected {
+    background-color: @selected-col;
+    text-color: @fontr-col;
+    border-radius: 3px;
+    border: 2px;
+    border-color: @main-col;
+}
+
+element-text {
+  vertical-align: 0.5;
+}
+
+button {
+    padding: 10px;
+    margin: 10px;
+    background-color: transparent;
+    text-color: @font-col;
+    horizontal-align: 0.5;
+}
+
+button selected {
+  background-color: transparent;
+  text-color: @font-col;
+}
+
+message {
+    background-color: @main-col;
+    margin: 2px;
+    padding: 2px;
+    border-radius: 5px;
+}
+
+textbox {
+    padding: 6px;
+    margin: 20px 0px 0px 20px;
+    text-color: @font-col;
+    background-color: @bg-col;
+}
