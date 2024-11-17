@@ -1,0 +1,15 @@
+configuration{
+    modi: "";
+    icon-theme: "Oranchelo";
+    show-icons: true;
+    terminal: "alacritty";
+    drun-display-format: "{icon} {name}";
+    location: 0;
+    disable-history: false;
+    hide-scrollbar: true;
+    display-drun: " ☰  Apps ";
+    sidebar-mode: true;
+}
+
+//@theme "inferno"
+@theme "~/.config/rofi/inferno.rasi"
