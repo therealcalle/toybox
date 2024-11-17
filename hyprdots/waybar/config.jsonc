@@ -24,26 +24,32 @@
     // Modules //
     /////////////
     "custom/cpu": {
-        "exec": "~/.config/waybar/modules/cpu.sh",
-        "interval": 4,
-        "format": "{}",
-        "tooltip-format": ""
+    "exec": "~/.config/waybar/modules/cpun.sh",
+    "interval": 2,
+    "format": "CPU: {}",  // Added a space before {} to make it more visible
+    "return-type": "json",
+    "tooltip": true,   // Add this to enable tooltips
+    "markup": "pango"    // Changed to specifically use Pango markup
     },
     "custom/gpu": {
         "exec": "~/.config/waybar/modules/gpu.sh",
-        "interval": 4,
-        "format": "{}",
-        "tooltip-format": ""
+        "interval": 2,
+        "format": "GPU: {}",
+        "return-type": "json",
+        "tooltip": true,
+        "markup": "pango"
     },
     "memory": {
-        "interval": 4,
-        "format": "RAM: {percentage}% SWAP: {swapPercentage}%",
+        "interval": 2,
+        "format": "RAM: <span color='#00E5FF'>{percentage}%</span> | <span color='#FFB300'>{swapPercentage}%</span>",
         "on-click": "alacritty -e btop",
         "tooltip-format": ""
     },
     "clock": {
-        "format": "{:L%H:%M | %A | %d/%m/%Y}",
-        "tooltip-format": ""
+        "format": "{:L%H:%M | %a | %d %b %Y}",
+        "tooltip-format": "",
+        "tooltip": false,
+        "markup": "pango"
     },
     "hyprland/workspaces": {
         "all-outputs": true,
@@ -68,7 +74,7 @@
     "wireplumber": {
         "on-click": "pavucontrol",
         "tooltip-format": "",
-        "format": "{icon}  {volume}%",
+        "format": "{icon}  <span color='#00E5FF'>{volume}%</span>",
         "format-muted": " ",
         "format-source": "",
         "format-source-muted": "",
