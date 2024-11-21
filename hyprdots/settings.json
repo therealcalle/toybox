@@ -1,0 +1,64 @@
+{
+    "window.commandCenter": false,
+    "workbench.settings.applyToAllProfiles": [
+    
+
+
+    ],
+    "workbench.colorTheme": "Dark Orange Flat",
+    "window.zoomLevel": 2,
+    "editor.formatOnSave": true,
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[css]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "breadcrumbs.enabled": false,
+    "editor.renderWhitespace": "none",
+    "workbench.statusBar.visible": false,
+    "workbench.activityBar.location": "top",
+    "window.customTitleBarVisibility": "auto",
+    "editor.tabSize": 2,
+    "editor.wordWrap": "on",
+    "editor.hideCursorInOverviewRuler": true,
+    "workbench.editor.tabActionCloseVisibility": false,
+    "explorer.decorations.colors": false,
+    "explorer.compactFolders": false,
+    "git.decorations.enabled": false,
+    "editor.bracketPairColorization.enabled": false,
+    "editor.renderLineHighlight": "none",
+    "editor.scrollbar.horizontal": "hidden",
+    "editor.scrollbar.vertical": "hidden",
+    "editor.scrollbar.verticalScrollbarSize": 0,
+    "editor.showFoldingControls": "never",
+    "editor.glyphMargin": false,
+    "editor.folding": false,
+    "workbench.layoutControl.enabled": false,
+    "window.title": "",
+    "editor.cursorBlinking": "solid",
+    "editor.cursorSmoothCaretAnimation": "on",
+    "workbench.editor.showTabs": "single",
+    "editor.occurrencesHighlight": "off",
+    "editor.minimap.enabled": false,
+    "scm.diffDecorationsGutterPattern": {
+        "added": false,
+        "modified": false
+    },
+    "scm.diffDecorations": "none",
+    "scm.diffDecorationsGutterAction": "none",
+    "files.autoSave": "onWindowChange",
+    "cursor.cpp.enablePartialAccepts": true,
+}
