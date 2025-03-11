@@ -4,8 +4,8 @@
 CPU_COLOR="#31fffc"
 TEMP_COLOR="#f7b11e"
 
-# Get CPU temperature (adjust 'Package id 0' as per your sensors output)
-temp=$(sensors | grep 'Package id 0' | awk '{print $4}' | tr -d '+°C')
+# Get CPU temperature for your AMD processor (k10temp)
+temp=$(sensors | grep Tctl | awk '{printf "%d", $2}' | tr -d '+°C')
 
 # Get CPU usage from /proc/stat
 prev_total=0
