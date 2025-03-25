@@ -1,0 +1,95 @@
+{
+    ///////////////////
+    // Global config //
+    ///////////////////
+    "layer": "top",
+    "position": "top",
+    "margin-left": 0,
+    "margin-bottom": 0,
+    "margin-right": 0,
+    "spacing": 5,
+    "modules-left": [
+        "custom/cpu",
+        "custom/gpu",
+        "memory"
+    ],
+    "modules-center": [
+        "hyprland/workspaces"
+    ],
+    "modules-right": [
+        "wireplumber",
+        "clock"
+    ],
+    /////////////
+    // Modules //
+    /////////////
+    "custom/cpu": {
+    "exec": "~/.config/waybar/modules/cpun.sh",
+    "interval": 2,
+    "format": "CPU: {}",  // Added a space before {} to make it more visible
+    "return-type": "json",
+    "tooltip": true,   // Add this to enable tooltips
+    "markup": "pango"    // Changed to specifically use Pango markup
+    },
+    "custom/gpu": {
+        "exec": "~/.config/waybar/modules/gpu.sh",
+        "interval": 2,
+        "format": "GPU: {}",
+        "return-type": "json",
+        "tooltip": true,
+        "markup": "pango"
+    },
+    "memory": {
+        "interval": 2,
+        "format": "RAM: <span color='#00E5FF'>{percentage}%</span> | <span color='#FFB300'>{swapPercentage}%</span>",
+        "on-click": "alacritty -e btop",
+        "tooltip-format": ""
+    },
+    "clock": {
+        "format": "{:L%H:%M | %a | %d %b %Y}",
+        "tooltip-format": "",
+        "tooltip": false,
+        "markup": "pango"
+    },
+    "hyprland/workspaces": {
+        "all-outputs": true,
+        "format": "{name}",
+        "format-icons": {
+            "1": "一",
+            "2": "二",
+            "3": "三",
+            "4": "四",
+            "5": "五",
+            "6": "六",
+            "7": "七",
+            "8": "八",
+            "9": "九",
+            "10": "十"
+        },
+        "on-scroll-up": "hyprctl dispatch workspace e+1 1>/dev/null",
+        "on-scroll-down": "hyprctl dispatch workspace e-1 1>/dev/null",
+        "sort-by-number": true,
+        "active-only": false
+    },
+    "wireplumber": {
+        "on-click": "pavucontrol",
+        "tooltip-format": "",
+        "format": "{icon}  <span color='#00E5FF'>{volume}%</span>",
+        "format-muted": " ",
+        "format-source": "",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": " ",
+            "hands-free": " ",
+            "headset": " ",
+            "phone": " ",
+            "portable": " ",
+            "car": " ",
+            "default": [
+                " ",
+                " ",
+                " "
+            ]
+        }
+    }
+}
